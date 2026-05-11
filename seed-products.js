@@ -16,22 +16,13 @@ const ProductSchema = new mongoose.Schema({
 const Product = mongoose.models.Product || mongoose.model('Product', ProductSchema);
 
 const products = [
-    { name: "Vermi compost", weight: "250 g", price: 30, img: "https://5.imimg.com/data5/SELLER/Default/2021/2/CU/UB/ZH/5050723/vermi-compost.jpg" },
-    { name: "Horn and hoof meal", weight: "100 g", price: 20, img: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=400&auto=format&fit=crop" },
-    { name: "Bone Rust", weight: "100 g", price: 20, img: "https://images.immediate.co.uk/production/volatile/sites/10/2019/04/2048x1365-How-to-plant-a-tree-in-a-pot-LI3554444-3e05a52.jpg?quality=90&fit=700,466" },
-    { name: "NPK", weight: "250 g", price: 200, img: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=400&auto=format&fit=crop" },
-    { name: "Vegetable based plant food", weight: "500 g", price: 1000, img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=400&auto=format&fit=crop" },
-    { name: "Neem Khali (Neem Cake)", weight: "500 g", price: 60, img: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=400&auto=format&fit=crop" },
-    { name: "Epsom Salt (Magnesium)", weight: "400 g", price: 80, img: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=400&auto=format&fit=crop" },
-    { name: "Perlite", weight: "500 g", price: 150, img: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?q=80&w=400&auto=format&fit=crop" },
-    { name: "DAP Fertilizer", weight: "250 g", price: 40, img: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=400&auto=format&fit=crop" },
-    { name: "Urea Fertilizer", weight: "500 g", price: 50, img: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=400&auto=format&fit=crop" },
-    { name: "Cow Dung Manure", weight: "1 kg", price: 40, img: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=400&auto=format&fit=crop" },
-    { name: "Humic Acid Liquid", weight: "250 ml", price: 120, img: "https://images.unsplash.com/photo-1599839619722-39751411ea53?q=80&w=400&auto=format&fit=crop" },
-    { name: "Wood Ash", weight: "500 g", price: 60, img: "https://images.unsplash.com/photo-1595801931086-538dc660946d?q=80&w=400&auto=format&fit=crop" },
-    { name: "Trichoderma Viride", weight: "250 g", price: 100, img: "https://images.unsplash.com/photo-1592982537447-6f2a6a0a4b86?q=80&w=400&auto=format&fit=crop" },
-    { name: "Pseudomonas Fluorescens", weight: "250 g", price: 110, img: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?q=80&w=400&auto=format&fit=crop" },
-    { name: "Mycorrhiza Powder", weight: "100 g", price: 80, img: "https://images.unsplash.com/photo-1615811361523-6bd03d7748e7?q=80&w=400&auto=format&fit=crop" }
+    { name: "Azotobacter Culture", weight: "100", price: 179, img: "/products/azotobacter.png" },
+    { name: "Phosphate Solubilizing Bacteria", weight: "10", price: 169, img: "/products/phosphate.png" },
+    { name: "Liquid Compost", weight: "130", price: 39, img: "/products/liquid_compost.png" },
+    { name: "Vermiculite Mix", weight: "150", price: 149, img: "/products/vermiculite.png" },
+    { name: "Organic Potting Mix", weight: "250", price: 60, img: "/products/potting_mix.png" },
+    { name: "Fertiliser", weight: "100", price: 49, img: "/products/fertilizer.png" },
+    { name: "Vermi compost", weight: "250 g", price: 30, img: "https://images.unsplash.com/photo-1599839619722-39751411ea53?q=80&w=400&auto=format&fit=crop" }
 ];
 
 async function seed() {

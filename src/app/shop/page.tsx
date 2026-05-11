@@ -13,14 +13,22 @@ import { useEffect } from "react";
 export default function Shop() {
     const { addToCart } = useCart();
     const [addedIds, setAddedIds] = useState<string[]>([]);
-    const [products, setProducts] = useState<any[]>([]);
+    const [products, setProducts] = useState<any[]>([
+        { _id: "1", name: "Azotobacter Culture", weight: "100", price: 179, img: "/products/azotobacter.png" },
+        { _id: "2", name: "Phosphate Solubilizing Bacteria", weight: "10", price: 169, img: "/products/phosphate.png" },
+        { _id: "3", name: "Liquid Compost", weight: "130", price: 39, img: "/products/liquid_compost.png" },
+        { _id: "4", name: "Vermiculite Mix", weight: "150", price: 149, img: "/products/vermiculite.png" },
+        { _id: "5", name: "Organic Potting Mix", weight: "250", price: 60, img: "/products/potting_mix.png" },
+        { _id: "6", name: "Fertiliser", weight: "100", price: 49, img: "/products/fertilizer.png" },
+        { _id: "7", name: "Vermi compost", weight: "250 g", price: 30, img: "https://images.unsplash.com/photo-1599839619722-39751411ea53?q=80&w=400&auto=format&fit=crop" }
+    ]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch("/api/products")
             .then(res => res.json())
             .then(data => {
-                if(data.products) setProducts(data.products);
+                if(data.products && data.products.length > 0) setProducts(data.products);
                 setLoading(false);
             })
             .catch(err => {
@@ -115,12 +123,12 @@ export default function Shop() {
 
                                     <div className="mt-auto flex items-end justify-between border-t border-slate-100 pt-4">
                                         <div className="flex flex-col">
-                                            <span className="text-xs text-slate-400 font-medium uppercase tracking-wider mb-1">Price</span>
+                                            <span className="text-xs text-slate-400 font-medium uppercase tracking-wider mb-0.5">Price</span>
                                             <span className="text-3xl font-black text-slate-900">₹{p.price}</span>
                                         </div>
                                         <button
                                             onClick={() => handleAddToCart(p)}
-                                            className="text-sm font-bold text-green-600 hover:text-green-700 hover:underline flex items-center gap-1 group/btn cursor-pointer"
+                                            className="text-sm font-bold text-green-600 hover:text-green-700 flex items-center gap-1 group/btn cursor-pointer transition-all"
                                         >
                                             {addedIds.includes(p._id) ? "Added!" : "Add to Cart"}
                                             {!addedIds.includes(p._id) && <span className="group-hover/btn:translate-x-1 transition-transform">→</span>}
