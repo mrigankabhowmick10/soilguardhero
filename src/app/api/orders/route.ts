@@ -12,6 +12,29 @@ export async function GET(req: Request) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const MONGODB_URI = process.env.MONGODB_URI;
+    if (!MONGODB_URI) {
+        // Mock orders for demo if no DB is connected
+        return NextResponse.json({ 
+            orders: [
+                {
+                    _id: "DEMO_ORDER_1",
+                    status: "Delivered",
+                    items: [{ name: "Organic Potting Mix", quantity: 1, price: 299 }],
+                    totalAmount: 299,
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    _id: "DEMO_ORDER_2",
+                    status: "Processing",
+                    items: [{ name: "Liquid Compost", quantity: 2, price: 398 }],
+                    totalAmount: 398,
+                    createdAt: new Date().toISOString()
+                }
+            ]
+        });
+    }
+
     await connectToDatabase();
 
     const url = new URL(req.url);

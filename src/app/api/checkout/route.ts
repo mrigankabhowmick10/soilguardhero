@@ -11,6 +11,17 @@ export async function POST(req: Request) {
     const body = await req.json();
     const { items, totalAmount, customerInfo, shippingAddress } = body;
 
+    const MONGODB_URI = process.env.MONGODB_URI;
+    if (!MONGODB_URI) {
+        // Mock success for demo if no DB is connected
+        console.warn("MONGODB_URI missing, returning mock checkout success");
+        return NextResponse.json({ 
+            success: true, 
+            orderId: "DEMO_" + Math.random().toString(36).substring(7).toUpperCase(),
+            isDemo: true 
+        });
+    }
+
     await connectToDatabase();
 
     // If user is logged in, attach to user. If guest, you could handle it differently.
